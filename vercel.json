@@ -1,15 +1,5 @@
 {
-  "version": 2,
-  "name": "whispers-in-the-dark",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
+  "name": "suffer",
   "routes": [
     {
       "src": "/robots.txt",
