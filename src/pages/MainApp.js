@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { Ghost, Plus, BookOpen, AlertTriangle, ArrowLeft } from 'lucide-react';
+import { Plus, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CircularGallery from '../components/CircularGallery';
 import StoryForm from '../components/StoryForm';
@@ -24,9 +24,10 @@ function MainApp() {
   });
 
   const [showForm, setShowForm] = useState(false);
-  const [activeTab, setActiveTab] = useState('feed');
+  const [activeTab] = useState('feed');
   // Modal removed - stories now open in separate page
   const [languageFilter, setLanguageFilter] = useState('all');
+  // eslint-disable-next-line no-unused-vars
   const [centeredStoryIndex, setCenteredStoryIndex] = useState(0);
   const galleryRef = useRef(null);
   const lastKeyTime = useRef(0);
@@ -47,38 +48,6 @@ function MainApp() {
 
     setStories([story, ...stories]);
     setShowForm(false);
-  };
-
-  const addComment = (storyId, comment) => {
-    setStories(
-      stories.map((story) => {
-        if (story.id === storyId) {
-          return {
-            ...story,
-            comments: [
-              ...story.comments,
-              {
-                id: Date.now(),
-                text: comment,
-                author: 'Anonymous',
-                timestamp: new Date().toISOString(),
-              },
-            ],
-          };
-        }
-        return story;
-      })
-    );
-  };
-
-  const likeStory = (storyId) => {
-    setStories(
-      stories.map((story) =>
-        story.id === storyId
-          ? { ...story, likes: story.likes + 1 }
-          : story
-      )
-    );
   };
 
   // handleLike and handleComment moved to StoryPage

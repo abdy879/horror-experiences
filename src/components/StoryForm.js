@@ -9,7 +9,6 @@ function StoryForm({ onSubmit, onCancel }) {
     language: 'english',
   });
   const [errors, setErrors] = useState({});
-  const [warning, setWarning] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validate = () => {
