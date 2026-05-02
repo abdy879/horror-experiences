@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0a0a0a;
+  color: #e5e5e5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #660000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b0000;
+}
+
+/* Horror text effects */
+.text-glow {
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.5), 0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(255, 51, 51, 0.6), 0 0 30px rgba(255, 51, 51, 0.4);
+}
+
+/* Fog effect */
+.fog {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Blood splatter decorative elements */
+.blood-splatter {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+/* Horror card hover effect */
+.horror-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+.horror-card:hover {
+  border-color: rgba(139, 0, 0, 0.8);
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Glitch effect for special elements */
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Horror text with heartbeat animation */
+.horror-text {
+  font-size: 4rem;
+  color: #000000;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+/* The heartbeat trigger */
+.horror-text:hover {
+  animation: heartbeat 1.5s ease-in-out infinite;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+/* The "Lub-Dub" rhythm */
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+/* Word wrap for long text */
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Gallery focus container for keyboard navigation */
+.gallery-focus-container {
+  outline: none;
+}
+
+.gallery-focus-container:focus {
+  outline: none;
+}
